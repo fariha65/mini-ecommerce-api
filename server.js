@@ -23,6 +23,15 @@ app.use('/api/cart', cartRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    message: "Mini E-Commerce API is running",
+    version: "1.0.0",
+    docs: "/api"
+  });
+});
+
 
 sequelize.sync({ alter: true }).then(() => {
     console.log('Database synced');
